@@ -24,14 +24,12 @@ This project is a high-fidelity design for the EWB app, showcasing mood tracking
 
 ## How to Run the Project
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/EWB-App.git
-   cd EWB-App
+1. Clone the repository or download the zipped file:
+   
    
 2. Open the project in Visual Studio Code:
 
-    code .
+   
 
 3. Open index.html with Live Server:
 

@@ -2,494 +2,469 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <title>EWB App – High-Fidelity Design</title>
+  <meta charset="UTF-8">
+  <title>EWB App – High-Fidelity Design</title>
 
- <!-- Google Fonts (Poppins + Open Sans) -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link
-  href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap"
-  rel="stylesheet">
+  <!-- Google Fonts (Poppins + Open Sans) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Poppins:wght@400;600;700&display=swap"
+    rel="stylesheet">
 
- <!-- Material Icons -->
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <!-- Material Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 
- <!-- Chart.js CDN -->
- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
- <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
- <!-- iPhone 13 Container (390 x 844) -->
- <div class="device-frame">
+  <!-- iPhone 13 Container (390 x 844) -->
+  <div class="device-frame">
 
-  <!-- SIDE DRAWER (Hamburger) -->
-  <aside class="side-drawer" id="sideDrawer" aria-label="Sidebar Navigation">
-   <div class="drawer-header">
-    <img src="images/logo.png" alt="EWB Logo" class="drawer-logo">
-    <h2>EWB</h2>
-    <button class="drawer-close" onclick="closeDrawer()" aria-label="Close Menu">✕</button>
-   </div>
-   <ul class="drawer-list">
-    <li onclick="goToProfile()" tabindex="0">
-     <span class="material-symbols-outlined">person</span>
-     My Profile
-    </li>
-    <li onclick="goToSettings()" tabindex="0">
-     <span class="material-symbols-outlined">settings</span>
-     Settings
-    </li>
-    <li onclick="goToProgress()" tabindex="0">
-     <span class="material-symbols-outlined">insights</span>
-     Progress
-    </li>
-   </ul>
-   <button class="drawer-logout" onclick="logOut()" tabindex="0">Log Out</button>
-  </aside>
+    <!-- SIDE DRAWER (Hamburger) -->
+    <aside class="side-drawer" id="sideDrawer" aria-label="Sidebar Navigation">
+      <div class="drawer-header">
+        <img src="images/logo.png" alt="EWB Logo" class="drawer-logo">
+        <h2>EWB</h2>
+        <button class="drawer-close" onclick="closeDrawer()" aria-label="Close Menu">✕</button>
+      </div>
+      <ul class="drawer-list">
+        <li onclick="goToProfile()" tabindex="0">
+          <span class="material-symbols-outlined">person</span>
+          My Profile
+        </li>
+        <li onclick="goToSettings()" tabindex="0">
+          <span class="material-symbols-outlined">settings</span>
+          Settings
+        </li>
+        <li onclick="goToProgress()" tabindex="0">
+          <span class="material-symbols-outlined">insights</span>
+          Progress
+        </li>
+      </ul>
+      <button class="drawer-logout" onclick="logOut()" tabindex="0">Log Out</button>
+    </aside>
 
-  <!-- Overlay for the drawer -->
-  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()" aria-hidden="true"></div>
+    <!-- Overlay for the drawer -->
+    <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()" aria-hidden="true"></div>
 
-  <!-- 1: SPLASH SCREEN -->
-  <section class="screen" id="splashScreen" aria-label="Splash Screen">
-   <div class="splash-content">
-    <img src="images/logo.png" alt="EWB Logo" class="app-logo animate-fade-in">
-    <h1 class="app-title animate-fade-in">EWB</h1>
-    <p class="app-subtitle animate-fade-in">Track your mood, find your balance</p>
-    <button class="primary-btn large-btn animate-slide-up" onclick="goToLogin()">Continue</button>
-   </div>
-  </section>
+    <!-- 1: SPLASH SCREEN -->
+    <section class="screen" id="splashScreen" aria-label="Splash Screen">
+      <div class="splash-content">
+        <img src="images/logo.png" alt="EWB Logo" class="app-logo animate-fade-in">
+        <h1 class="app-title animate-fade-in">EWB</h1>
+        <p class="app-subtitle animate-fade-in">Track your mood, find your balance</p>
+        <button class="primary-btn large-btn animate-slide-up" onclick="goToLogin()">Continue</button>
+      </div>
+    </section>
 
-  <!-- 2: LOGIN SCREEN -->
-  <section class="screen" id="loginScreen" aria-label="Login Screen">
-   <!-- Header -->
-   <header class="top-nav no-drawer">
-    <h2 class="top-nav-title">Welcome Back!</h2>
-   </header>
+    <!-- 2: LOGIN SCREEN -->
+    <section class="screen" id="loginScreen" aria-label="Login Screen">
+      <!-- Header -->
+      <header class="top-nav no-drawer">
+        <h2 class="top-nav-title">Welcome Back!</h2>
+      </header>
 
-   <div class="card animate-fade-in">
-    <h2 class="card-title">Sign In</h2>
+      <div class="card animate-fade-in">
+        <h2 class="card-title">Sign In</h2>
 
-    <div class="input-group">
-     <label for="loginEmail">Email / Username</label>
-     <div class="input-wrapper">
-      <span class="input-icon material-symbols-outlined">person</span>
-      <input type="text" id="loginEmail" placeholder="Enter email or username" aria-label="Email or Username" required>
-     </div>
+        <div class="input-group">
+          <label for="loginEmail">Email / Username</label>
+          <div class="input-wrapper">
+            <span class="input-icon material-symbols-outlined">person</span>
+            <input type="text" id="loginEmail" placeholder="Enter email or username" aria-label="Email or Username"
+              required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="loginPassword">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon material-symbols-outlined">lock</span>
+            <input type="password" id="loginPassword" placeholder="Enter password" aria-label="Password" required>
+          </div>
+        </div>
+        <div class="options-row">
+          <div class="checkbox-container">
+            <input type="checkbox" id="rememberMe" aria-label="Remember Me">
+            <label for="rememberMe">Remember Me</label>
+          </div>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+        </div>
+        <button class="primary-btn" onclick="handleLogin()" tabindex="0">Sign In</button>
+        <p class="signup-text">
+          Don’t have an account?
+          <button class="secondary-btn small-btn" onclick="goToSignUp()" tabindex="0">Sign Up</button>
+        </p>
+      </div>
+
+      <!-- No bottom nav here for Login Screen -->
+    </section>
+
+    <!-- 3: SIGN UP SCREEN -->
+    <section class="screen" id="signUpScreen" aria-label="Sign-Up Screen">
+      <!-- Header -->
+      <header class="top-nav no-drawer">
+        <h2 class="top-nav-title">Welcome! Let's Get Started</h2>
+      </header>
+
+      <div class="card animate-fade-in">
+        <h2 class="card-title">Create an Account</h2>
+        <div class="input-group">
+          <label for="fullName">Full Name</label>
+          <div class="input-wrapper">
+            <span class="input-icon material-symbols-outlined">badge</span>
+            <input type="text" id="fullName" placeholder="Enter full name" aria-label="Full Name" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="signUpEmail">Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon material-symbols-outlined">mail</span>
+            <input type="email" id="signUpEmail" placeholder="Enter email" aria-label="Email" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="signUpPassword">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon material-symbols-outlined">lock</span>
+            <input type="password" id="signUpPassword" placeholder="Enter password" aria-label="Password" required>
+          </div>
+        </div>
+        <button class="primary-btn" onclick="handleSignUp()" tabindex="0">Sign Up</button>
+      </div>
+
+      <!-- No bottom nav here for Sign Up Screen -->
+    </section>
+
+    <!-- 4: DASHBOARD SCREEN -->
+    <section class="screen" id="dashboardScreen" aria-label="Dashboard Screen">
+      <header class="top-nav">
+        <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="top-nav-title">Welcome back, Prashraya</h2>
+      </header>
+
+      <!-- 2x2 grid to align tiles properly -->
+      <div class="dashboard-grid">
+        <div class="feature-card mood-logging-card" onclick="goToMood()" tabindex="0" aria-label="Mood Logging">
+          <span class="material-symbols-outlined">mood</span>
+          <h3>Mood Logging</h3>
+        </div>
+        <div class="feature-card exercises-card" onclick="goToExercises()" tabindex="0" aria-label="Exercises">
+          <span class="material-symbols-outlined">fitness_center</span>
+          <h3>Exercises</h3>
+        </div>
+        <div class="feature-card progress-card" onclick="goToProgress()" tabindex="0" aria-label="Progress">
+          <span class="material-symbols-outlined">bar_chart</span>
+          <h3>Progress</h3>
+        </div>
+        <div class="feature-card feature-settings-card" onclick="goToSettings()" tabindex="0" aria-label="Settings">
+          <span class="material-symbols-outlined">settings</span>
+          <h3>Settings</h3>
+        </div>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav" aria-label="Bottom Navigation">
+        <button onclick="goToDashboard()" aria-label="Home">
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </button>
+        <button onclick="goToProfile()" aria-label="Profile">
+          <span class="material-symbols-outlined">person</span>
+          <p>Profile</p>
+        </button>
+        <button onclick="goToFavorites()" aria-label="Favorites">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>Favorites</p>
+        </button>
+      </nav>
+    </section>
+
+    <!-- 5: MOOD LOGGING -->
+    <section class="screen" id="moodScreen" aria-label="Mood Logging Screen">
+      <header class="top-nav">
+        <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="top-nav-title">Mood Logging</h2>
+      </header>
+
+      <div class="card animate-fade-in">
+        <div class="input-group">
+          <label for="moodRating">Mood Rating (1-5)</label>
+          <div class="slider-container">
+            <input class="slider" type="range" id="moodRating" min="1" max="5" value="3" aria-label="Mood Rating">
+            <span id="moodValue">3</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="reflection">Reflection</label>
+          <textarea id="reflection" rows="4" placeholder="How are you feeling today?"
+            aria-label="Reflection"></textarea>
+        </div>
+        <button class="primary-btn" onclick="handleSaveEntry()" tabindex="0">Save Entry</button>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav" aria-label="Bottom Navigation">
+        <button onclick="goToDashboard()" aria-label="Home">
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </button>
+        <button onclick="goToProfile()" aria-label="Profile">
+          <span class="material-symbols-outlined">person</span>
+          <p>Profile</p>
+        </button>
+        <button onclick="goToFavorites()" aria-label="Favorites">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>Favorites</p>
+        </button>
+      </nav>
+    </section>
+
+    <!-- 6: EXERCISES -->
+    <section class="screen" id="exercisesScreen" aria-label="Exercises Screen">
+      <header class="top-nav">
+        <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="top-nav-title">Exercises</h2>
+      </header>
+
+      <div class="card animate-fade-in">
+        <div class="exercise-card animate-slide-up">
+          <span class="material-symbols-outlined">meditation</span>
+          <h3>Morning Meditation (5 min)</h3>
+          <p>Start your day with calm.</p>
+          <button class="secondary-btn small-btn" onclick="beginExercise('Morning Meditation')">Begin</button>
+        </div>
+        <div class="exercise-card animate-slide-up">
+          <span class="material-symbols-outlined">air</span>
+          <h3>Breathing Exercise (5 min)</h3>
+          <p>Focus on controlled breathing to reduce stress.</p>
+          <button class="secondary-btn small-btn" onclick="beginExercise('Breathing Exercise')">Begin</button>
+        </div>
+        <button class="primary-btn" style="margin-top:1rem;" onclick="goToDashboard()" tabindex="0">Back to
+          Dashboard</button>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav" aria-label="Bottom Navigation">
+        <button onclick="goToDashboard()" aria-label="Home">
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </button>
+        <button onclick="goToProfile()" aria-label="Profile">
+          <span class="material-symbols-outlined">person</span>
+          <p>Profile</p>
+        </button>
+        <button onclick="goToFavorites()" aria-label="Favorites">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>Favorites</p>
+        </button>
+      </nav>
+    </section>
+
+    <!-- 7: PROGRESS -->
+    <section class="screen" id="progressScreen" aria-label="Progress Screen">
+      <header class="top-nav">
+        <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="top-nav-title">Progress</h2>
+      </header>
+
+      <div class="card animate-fade-in">
+        <!-- Chart Container -->
+        <div class="chart-container">
+          <canvas id="moodChart" aria-label="Mood Rating Bar Chart" role="img"></canvas>
+        </div>
+        <p>Weekly mood scores overview.</p>
+        <button class="primary-btn" style="margin-top:1rem;" onclick="goToDashboard()" tabindex="0">Back to
+          Dashboard</button>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav" aria-label="Bottom Navigation">
+        <button onclick="goToDashboard()" aria-label="Home">
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </button>
+        <button onclick="goToProfile()" aria-label="Profile">
+          <span class="material-symbols-outlined">person</span>
+          <p>Profile</p>
+        </button>
+        <button onclick="goToFavorites()" aria-label="Favorites">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>Favorites</p>
+        </button>
+      </nav>
+    </section>
+
+    <!-- 8: SETTINGS -->
+    <section class="screen" id="settingsScreen" aria-label="Settings Screen">
+      <header class="top-nav">
+        <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="top-nav-title">Settings</h2>
+      </header>
+
+      <div class="card settings-card animate-fade-in">
+        <div class="toggle-row">
+          <div>
+            <label for="enableNotifications">Enable Notifications</label>
+            <p class="toggle-subtext">Receive updates about your progress</p>
+          </div>
+          <label class="toggle-switch">
+            <input type="checkbox" id="enableNotifications" aria-label="Enable Notifications">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <button class="secondary-btn small-btn" onclick="exportData()" aria-label="Export My Data">
+          <span class="material-symbols-outlined">file_download</span> Export My Data
+        </button>
+        <button class="secondary-btn small-btn warning-btn" onclick="confirmDeleteAccount()"
+          aria-label="Delete Account">
+          <span class="material-symbols-outlined">delete</span> Delete Account
+        </button>
+        <button class="primary-btn" style="margin-top:1rem;" onclick="goToDashboard()" tabindex="0">Back to
+          Dashboard</button>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav" aria-label="Bottom Navigation">
+        <button onclick="goToDashboard()" aria-label="Home">
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </button>
+        <button onclick="goToProfile()" aria-label="Profile">
+          <span class="material-symbols-outlined">person</span>
+          <p>Profile</p>
+        </button>
+        <button onclick="goToFavorites()" aria-label="Favorites">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>Favorites</p>
+        </button>
+      </nav>
+    </section>
+
+    <!-- 9: PROFILE SCREEN -->
+    <section class="screen" id="profileScreen" aria-label="Profile Screen">
+      <header class="top-nav">
+        <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="top-nav-title">My Profile</h2>
+      </header>
+
+      <div class="card profile-card animate-fade-in">
+        <div class="profile-header">
+          <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic">
+          <button class="edit-btn" onclick="editProfile()" aria-label="Edit Profile">
+            <span class="material-symbols-outlined">edit</span>
+          </button>
+        </div>
+        <h2 class="card-title">Prashraya Gautam</h2>
+        <p>Email: prashraya@example.com</p>
+        <p>Joined: 11 Jan 2025</p>
+        <button class="secondary-btn small-btn" onclick="logOut()" aria-label="Log Out">Log Out</button>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav" aria-label="Bottom Navigation">
+        <button onclick="goToDashboard()" aria-label="Home">
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </button>
+        <button onclick="goToProfile()" aria-label="Profile">
+          <span class="material-symbols-outlined">person</span>
+          <p>Profile</p>
+        </button>
+        <button onclick="goToFavorites()" aria-label="Favorites">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>Favorites</p>
+        </button>
+      </nav>
+    </section>
+
+    <!-- 10: FAVORITES SCREEN -->
+    <section class="screen" id="favoritesScreen" aria-label="Favorites Screen">
+      <header class="top-nav">
+        <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <h2 class="top-nav-title">Favorites</h2>
+      </header>
+
+      <div class="card animate-fade-in">
+        <h2 class="card-title">Favorite Exercises</h2>
+        <ul class="favorites-list">
+          <li tabindex="0" onclick="startFavoriteExercise('Morning Meditation')">
+            <span class="material-symbols-outlined favorite-icon">star</span> Morning Meditation (5 min)
+          </li>
+          <li tabindex="0" onclick="startFavoriteExercise('Evening Wind-Down')">
+            <span class="material-symbols-outlined favorite-icon">star</span> Evening Wind-Down (10 min)
+          </li>
+        </ul>
+        <h2 class="card-title" style="margin-top:2rem;">Favorite Mood Logs</h2>
+        <ul class="favorites-list">
+          <li tabindex="0" onclick="viewMoodLog('Gratitude Log')">
+            <span class="material-symbols-outlined favorite-icon">star</span> Gratitude Log (Jan 10)
+          </li>
+          <li tabindex="0" onclick="viewMoodLog('Positive Reflection')">
+            <span class="material-symbols-outlined favorite-icon">star</span> Positive Reflection (Jan 15)
+          </li>
+        </ul>
+      </div>
+
+      <!-- BOTTOM NAV -->
+      <nav class="bottom-nav" aria-label="Bottom Navigation">
+        <button onclick="goToDashboard()" aria-label="Home">
+          <span class="material-symbols-outlined">home</span>
+          <p>Home</p>
+        </button>
+        <button onclick="goToProfile()" aria-label="Profile">
+          <span class="material-symbols-outlined">person</span>
+          <p>Profile</p>
+        </button>
+        <button onclick="goToFavorites()" aria-label="Favorites">
+          <span class="material-symbols-outlined">favorite</span>
+          <p>Favorites</p>
+        </button>
+      </nav>
+    </section>
+
+  </div><!-- device-frame -->
+
+  <!-- Confirmation Modal for Deleting Account -->
+  <div id="confirmationModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <h3>Confirm Deletion</h3>
+      <p>Are you sure you want to delete your account? This action cannot be undone.</p>
+      <div class="modal-buttons">
+        <button class="secondary-btn small-btn" onclick="closeModal()">Cancel</button>
+        <button class="warning-btn small-btn" onclick="deleteAccount()">Delete</button>
+      </div>
     </div>
-    <div class="input-group">
-     <label for="loginPassword">Password</label>
-     <div class="input-wrapper">
-      <span class="input-icon material-symbols-outlined">lock</span>
-      <input type="password" id="loginPassword" placeholder="Enter password" aria-label="Password" required>
-     </div>
-    </div>
-    <div class="options-row">
-     <div class="checkbox-container">
-      <input type="checkbox" id="rememberMe" aria-label="Remember Me">
-      <label for="rememberMe">Remember Me</label>
-     </div>
-     <a href="#" class="forgot-link">Forgot Password?</a>
-    </div>
-    <button class="primary-btn" onclick="handleLogin()" tabindex="0">Sign In</button>
-    <p class="signup-text">
-     Don’t have an account?
-     <button class="secondary-btn small-btn" onclick="goToSignUp()" tabindex="0">Sign Up</button>
-    </p>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 3: SIGN UP SCREEN -->
-  <section class="screen" id="signUpScreen" aria-label="Sign-Up Screen">
-   <!-- Header -->
-   <header class="top-nav no-drawer">
-    <h2 class="top-nav-title">Welcome! Let's Get Started</h2>
-   </header>
-
-   <div class="card animate-fade-in">
-    <h2 class="card-title">Create an Account</h2>
-    <div class="input-group">
-     <label for="fullName">Full Name</label>
-     <div class="input-wrapper">
-      <span class="input-icon material-symbols-outlined">badge</span>
-      <input type="text" id="fullName" placeholder="Enter full name" aria-label="Full Name" required>
-     </div>
-    </div>
-    <div class="input-group">
-     <label for="signUpEmail">Email</label>
-     <div class="input-wrapper">
-      <span class="input-icon material-symbols-outlined">mail</span>
-      <input type="email" id="signUpEmail" placeholder="Enter email" aria-label="Email" required>
-     </div>
-    </div>
-    <div class="input-group">
-     <label for="signUpPassword">Password</label>
-     <div class="input-wrapper">
-      <span class="input-icon material-symbols-outlined">lock</span>
-      <input type="password" id="signUpPassword" placeholder="Enter password" aria-label="Password" required>
-     </div>
-    </div>
-    <button class="primary-btn" onclick="handleSignUp()" tabindex="0">Sign Up</button>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 4: DASHBOARD SCREEN -->
-  <section class="screen" id="dashboardScreen" aria-label="Dashboard Screen">
-   <header class="top-nav">
-    <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
-     <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h2 class="top-nav-title">Welcome back, Prashraya</h2>
-   </header>
-
-   <!-- 2x2 grid to align tiles properly -->
-   <div class="dashboard-grid">
-    <div class="feature-card mood-logging-card" onclick="goToMood()" tabindex="0" aria-label="Mood Logging">
-     <span class="material-symbols-outlined">mood</span>
-     <h3>Mood Logging</h3>
-    </div>
-    <div class="feature-card exercises-card" onclick="goToExercises()" tabindex="0" aria-label="Exercises">
-     <span class="material-symbols-outlined">fitness_center</span>
-     <h3>Exercises</h3>
-    </div>
-    <div class="feature-card progress-card" onclick="goToProgress()" tabindex="0" aria-label="Progress">
-     <span class="material-symbols-outlined">bar_chart</span>
-     <h3>Progress</h3>
-    </div>
-    <div class="feature-card feature-settings-card" onclick="goToSettings()" tabindex="0" aria-label="Settings">
-     <span class="material-symbols-outlined">settings</span>
-     <h3>Settings</h3>
-    </div>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 5: MOOD LOGGING -->
-  <section class="screen" id="moodScreen" aria-label="Mood Logging Screen">
-   <header class="top-nav">
-    <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
-     <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h2 class="top-nav-title">Mood Logging</h2>
-   </header>
-
-   <div class="card animate-fade-in">
-    <div class="input-group">
-     <label for="moodRating">Mood Rating (1-5)</label>
-     <div class="slider-container">
-      <input class="slider" type="range" id="moodRating" min="1" max="5" value="3" aria-label="Mood Rating">
-      <span id="moodValue">3</span>
-     </div>
-    </div>
-    <div class="input-group">
-     <label for="reflection">Reflection</label>
-     <textarea id="reflection" rows="4" placeholder="How are you feeling today?" aria-label="Reflection"></textarea>
-    </div>
-    <button class="primary-btn" onclick="handleSaveEntry()" tabindex="0">Save Entry</button>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 6: EXERCISES -->
-  <section class="screen" id="exercisesScreen" aria-label="Exercises Screen">
-   <header class="top-nav">
-    <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
-     <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h2 class="top-nav-title">Exercises</h2>
-   </header>
-
-   <div class="card animate-fade-in">
-    <div class="exercise-card animate-slide-up">
-     <span class="material-symbols-outlined">meditation</span>
-     <h3>Morning Meditation (5 min)</h3>
-     <p>Start your day with calm.</p>
-     <button class="secondary-btn small-btn" onclick="beginExercise('Morning Meditation')">Begin</button>
-    </div>
-    <div class="exercise-card animate-slide-up">
-     <span class="material-symbols-outlined">air</span>
-     <h3>Breathing Exercise (5 min)</h3>
-     <p>Focus on controlled breathing to reduce stress.</p>
-     <button class="secondary-btn small-btn" onclick="beginExercise('Breathing Exercise')">Begin</button>
-    </div>
-    <button class="primary-btn" style="margin-top:1rem;" onclick="goToDashboard()" tabindex="0">Back to
-     Dashboard</button>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 7: PROGRESS -->
-  <section class="screen" id="progressScreen" aria-label="Progress Screen">
-   <header class="top-nav">
-    <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
-     <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h2 class="top-nav-title">Progress</h2>
-   </header>
-
-   <div class="card animate-fade-in">
-    <!-- Chart Container -->
-    <div class="chart-container">
-     <canvas id="moodChart" aria-label="Mood Rating Bar Chart" role="img"></canvas>
-    </div>
-    <p>Weekly mood scores overview.</p>
-    <button class="primary-btn" style="margin-top:1rem;" onclick="goToDashboard()" tabindex="0">Back to
-     Dashboard</button>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 8: SETTINGS -->
-  <section class="screen" id="settingsScreen" aria-label="Settings Screen">
-   <header class="top-nav">
-    <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
-     <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h2 class="top-nav-title">Settings</h2>
-   </header>
-
-   <div class="card settings-card animate-fade-in">
-    <div class="toggle-row">
-     <div>
-      <label for="enableNotifications">Enable Notifications</label>
-      <p class="toggle-subtext">Receive updates about your progress</p>
-     </div>
-     <label class="toggle-switch">
-      <input type="checkbox" id="enableNotifications" aria-label="Enable Notifications">
-      <span class="toggle-slider"></span>
-     </label>
-    </div>
-    <button class="secondary-btn small-btn" onclick="exportData()" aria-label="Export My Data">
-     <span class="material-symbols-outlined">file_download</span> Export My Data
-    </button>
-    <button class="secondary-btn small-btn warning-btn" onclick="confirmDeleteAccount()" aria-label="Delete Account">
-     <span class="material-symbols-outlined">delete</span> Delete Account
-    </button>
-    <button class="primary-btn" style="margin-top:1rem;" onclick="goToDashboard()" tabindex="0">Back to
-     Dashboard</button>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 9: PROFILE SCREEN -->
-  <section class="screen" id="profileScreen" aria-label="Profile Screen">
-   <header class="top-nav">
-    <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
-     <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h2 class="top-nav-title">My Profile</h2>
-   </header>
-
-   <div class="card profile-card animate-fade-in">
-    <div class="profile-header">
-     <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic">
-     <button class="edit-btn" onclick="editProfile()" aria-label="Edit Profile">
-      <span class="material-symbols-outlined">edit</span>
-     </button>
-    </div>
-    <h2 class="card-title">Prashraya Gautam</h2>
-    <p>Email: prashraya@example.com</p>
-    <p>Joined: 11 Jan 2025</p>
-    <button class="secondary-btn small-btn" onclick="logOut()" aria-label="Log Out">Log Out</button>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
-  <!-- 10: FAVORITES SCREEN -->
-  <section class="screen" id="favoritesScreen" aria-label="Favorites Screen">
-   <header class="top-nav">
-    <button class="hamburger-btn" onclick="openDrawer()" aria-label="Open Menu">
-     <span class="material-symbols-outlined">menu</span>
-    </button>
-    <h2 class="top-nav-title">Favorites</h2>
-   </header>
-
-   <div class="card animate-fade-in">
-    <h2 class="card-title">Favorite Exercises</h2>
-    <ul class="favorites-list">
-     <li tabindex="0" onclick="startFavoriteExercise('Morning Meditation')">
-      <span class="material-symbols-outlined favorite-icon">star</span> Morning Meditation (5 min)
-     </li>
-     <li tabindex="0" onclick="startFavoriteExercise('Evening Wind-Down')">
-      <span class="material-symbols-outlined favorite-icon">star</span> Evening Wind-Down (10 min)
-     </li>
-    </ul>
-    <h2 class="card-title" style="margin-top:2rem;">Favorite Mood Logs</h2>
-    <ul class="favorites-list">
-     <li tabindex="0" onclick="viewMoodLog('Gratitude Log')">
-      <span class="material-symbols-outlined favorite-icon">star</span> Gratitude Log (Jan 10)
-     </li>
-     <li tabindex="0" onclick="viewMoodLog('Positive Reflection')">
-      <span class="material-symbols-outlined favorite-icon">star</span> Positive Reflection (Jan 15)
-     </li>
-    </ul>
-   </div>
-
-   <!-- BOTTOM NAV -->
-   <nav class="bottom-nav" aria-label="Bottom Navigation">
-    <button onclick="goToDashboard()" aria-label="Home">
-     <span class="material-symbols-outlined">home</span>
-     <p>Home</p>
-    </button>
-    <button onclick="goToProfile()" aria-label="Profile">
-     <span class="material-symbols-outlined">person</span>
-     <p>Profile</p>
-    </button>
-    <button onclick="goToFavorites()" aria-label="Favorites">
-     <span class="material-symbols-outlined">favorite</span>
-     <p>Favorites</p>
-    </button>
-   </nav>
-  </section>
-
- </div><!-- device-frame -->
-
- <!-- Confirmation Modal for Deleting Account -->
- <div id="confirmationModal" class="modal" aria-hidden="true">
-  <div class="modal-content">
-   <h3>Confirm Deletion</h3>
-   <p>Are you sure you want to delete your account? This action cannot be undone.</p>
-   <div class="modal-buttons">
-    <button class="secondary-btn small-btn" onclick="closeModal()">Cancel</button>
-    <button class="warning-btn small-btn" onclick="deleteAccount()">Delete</button>
-   </div>
   </div>
- </div>
 
- <!-- Loading Spinner Modal -->
- <div id="loadingModal" class="modal" aria-hidden="true">
-  <div class="modal-content">
-   <div class="spinner"></div>
-   <p>Processing...</p>
+  <!-- Loading Spinner Modal -->
+  <div id="loadingModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="spinner"></div>
+      <p>Processing...</p>
+    </div>
   </div>
- </div>
 
- <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>
